@@ -5,8 +5,8 @@ Command: npx gltfjsx@6.5.2 public/models/AvatarModel.glb -t
 
 import * as THREE from "three";
 import React, { useEffect, useState } from "react";
-import { useGraph, useThree } from "@react-three/fiber";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame, useGraph, useThree } from "@react-three/fiber";
+import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
 import { GLTF, SkeletonUtils } from "three-stdlib";
 
 type ActionName =
@@ -83,11 +83,16 @@ export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
   const { actions } = useAnimations(animations, group);
   const { viewport } = useThree();
   const [resize, setResize] = useState(window.innerWidth < 1000);
+  const scroll = useScroll();
+  const [currentSection, setCurrentSection] = useState(0);
 
-  console.log(actions);
+  useFrame(() => {
+    const section = Math.floor(scroll.offset * scroll.pages);
+    console.log(section);
+  });
 
   useEffect(() => {
-    actions["Thinking"]?.reset().fadeIn(1.5).play();
+    actions["Standing"]?.reset().play();
 
     const handleResize = () => {
       setResize(window.innerWidth < 1000);
@@ -100,7 +105,7 @@ export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
     };
   }, []);
 
-  const positionX = resize ? viewport.width / 2 - 0.12 : 0.2;
+  const positionX = resize ? viewport.width / 2 - 0.14 : 0.2;
   const positionY = resize ? viewport.height / 2 - 1 : -1.4;
   const scale = resize ? 0.5 : 1;
 
