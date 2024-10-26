@@ -9,6 +9,16 @@ const Loader = () => {
   return <Html>{progress} %</Html>;
 };
 
+const SnapContent = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "100vh" }}>
+    {/* Agrega aquí el contenido que deseas mostrar dentro de cada "pantalla" */}
+    <div style={{ scrollSnapAlign: "start" }}>
+      <Content />
+    </div>
+    {/* Repite el patrón para cada sección si tienes varias */}
+  </div>
+);
+
 export const Scene = () => {
   return (
     <Canvas camera={{ position: [0, 1, 5], fov: 10 }}>
@@ -18,8 +28,15 @@ export const Scene = () => {
         <Suspense fallback={<Loader />}>
           <AvatarModel />
         </Suspense>
-        <Scroll html>
-          <Content />
+        <Scroll
+          style={{
+            scrollSnapType: "y mandatory",
+            overflowY: "scroll",
+            height: "100vh",
+          }}
+          html
+        >
+          <SnapContent />
         </Scroll>
       </ScrollControls>
     </Canvas>

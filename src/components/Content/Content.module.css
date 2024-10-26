@@ -1,6 +1,11 @@
+.content-container {
+  scroll-snap-type: y mandatory;
+}
+
 .section {
   width: 100dvw;
   min-height: 100dvh;
   padding: 1rem;
   box-sizing: border-box;
+  scroll-snap-align: start;
 }
