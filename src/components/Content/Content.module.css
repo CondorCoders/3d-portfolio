@@ -1,6 +1,31 @@
 .section {
   width: 100dvw;
   min-height: 100dvh;
-  padding: 1rem;
+  padding: 2rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionInner {
+  width: 80%;
+}
+
+.heading {
+  font-family: "TechnoRace";
+  font-size: 4.5rem;
+  margin: 0;
+}
+
+.decor {
+  color: var(--primary);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.description {
+  width: 60%;
 }

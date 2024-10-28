@@ -14,7 +14,7 @@ export const Scene = () => {
     <Canvas camera={{ position: [0, 1, 5], fov: 10 }}>
       <ambientLight intensity={1.5} />
       <directionalLight intensity={4} position={[-5, 5, 5]} />
-      <ScrollControls pages={4} damping={0.1}>
+      <ScrollControls pages={4}>
         <Suspense fallback={<Loader />}>
           <AvatarModel />
         </Suspense>
