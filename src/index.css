@@ -7,10 +7,12 @@
 }
 
 #root {
+  position: relative;
   min-width: 100dvw;
   height: 100dvh;
 
   --primary: #c8aa6e;
+  --secondary: 100, 32, 26;
 }
 
 body {
@@ -20,4 +22,8 @@ body {
   margin: 0;
   background-color: #180e0d;
   color: #fff;
+}
+
+p {
+  font-weight: 200;
 }

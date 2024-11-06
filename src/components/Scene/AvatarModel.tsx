@@ -4,10 +4,11 @@ Command: npx gltfjsx@6.5.2 public/models/AvatarModel.glb -t
 */
 
 import * as THREE from "three";
-import React, { useEffect, useState } from "react";
-import { useFrame, useGraph, useThree } from "@react-three/fiber";
-import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
+import React, { useContext, useEffect, useState } from "react";
+import { useGraph, useThree } from "@react-three/fiber";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF, SkeletonUtils } from "three-stdlib";
+import { ModelContext } from "../../contexts/ModelContext";
 
 type ActionName =
   | "Action"
@@ -75,13 +76,6 @@ type GLTFResult = GLTF & {
   animations: GLTFAction[];
 };
 
-const sectionAction: Record<number, string> = {
-  0: "Standing",
-  1: "Thinking",
-  2: "Happy",
-  3: "HeadNod",
-};
-
 export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
   const group = React.useRef<THREE.Group | null>(null);
   const { scene, animations } = useGLTF("./public/models/AvatarModel.glb");
@@ -90,29 +84,18 @@ export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
   const { actions } = useAnimations(animations, group);
   const { viewport } = useThree();
   const [resize, setResize] = useState(window.innerWidth < 1000);
-  const scroll = useScroll();
-  const [currentSection, setCurrentSection] = useState<number>(0);
-
-  useFrame(() => {
-    const sectionOffset = Math.floor(scroll.offset * scroll.pages);
-    const section = sectionOffset >= 3 ? 3 : sectionOffset;
-
-    if (currentSection !== section) {
-      setCurrentSection(section);
-    }
-  });
+  const { activeAnimation } = useContext(ModelContext);
 
   useEffect(() => {
-    const currentAction = sectionAction[currentSection];
     const modelActions = Object.keys(actions);
 
     modelActions.forEach((action) => {
-      if (action !== currentAction) {
+      if (action !== activeAnimation) {
         actions[action]?.fadeOut(0.3);
       }
     });
 
-    actions[currentAction]?.reset().fadeIn(0.3).play();
+    actions[activeAnimation]?.reset().fadeIn(0.3).play();
 
     const handleResize = () => {
       setResize(window.innerWidth < 1000);
@@ -123,9 +106,11 @@ export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [currentSection]);
+  }, [activeAnimation]);
 
-  const positionX = resize ? viewport.width / 2 - 0.14 : 0.3;
+  const positionX = resize
+    ? viewport.width / 2 - 0.14
+    : viewport.width / 2 - 0.4;
   const positionY = resize ? viewport.height / 2 - 1 : -1.4;
   const scale = resize ? 0.5 : 1;
 
