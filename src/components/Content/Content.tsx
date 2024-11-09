@@ -95,11 +95,11 @@ export const Content = () => {
         </Card>
         <Card
           label="Award"
-          heading="FemHack 2022"
-          link="https://www.nuwe.io/hackathons/femhack?section=overview"
-          imgUrl="./public/images/FemHack2022.webp"
+          heading="FemHack 2023: Tracking the Growth of Internet Users Worldwide"
+          link="https://github.com/sofigrijalva/frontend-femhack-challenge"
+          imgUrl="./public/images/FemHack2023.webp"
         >
-          <p>3rd place in the App Development challenge.</p>
+          <p>1st place in the Web Development Challenge.</p>
         </Card>
       </Section>
       <Section
