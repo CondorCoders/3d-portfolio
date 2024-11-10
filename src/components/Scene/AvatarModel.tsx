@@ -78,7 +78,7 @@ type GLTFResult = GLTF & {
 
 export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
   const group = React.useRef<THREE.Group | null>(null);
-  const { scene, animations } = useGLTF("./public/models/AvatarModel.glb");
+  const { scene, animations } = useGLTF("/models/AvatarModel.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone) as GLTFResult;
   const { actions } = useAnimations(animations, group);
@@ -279,4 +279,4 @@ export const AvatarModel = (props: JSX.IntrinsicElements["group"]) => {
   );
 };
 
-useGLTF.preload("./public/models/AvatarModel.glb");
+useGLTF.preload("/models/AvatarModel.glb");
