@@ -9,14 +9,14 @@ export const Backdrop = () => {
   return (
     <div className={styles.backdrop}>
       <img
-        src="/public/images/Backdrop.webp"
+        src="/images/Backdrop.webp"
         alt="TechLayer"
         className={`${styles.backdropImage} ${
           skin === "dev" ? styles.visible : ""
         }`}
       />
       <img
-        src="/public/images/Room.webp"
+        src="/images/Room.webp"
         alt="TechLayer"
         className={`${styles.backdropImage} ${
           skin === "creator" ? styles.visible : ""
