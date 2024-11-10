@@ -1,22 +1,16 @@
 .section {
-  width: 100dvw;
   min-height: 100dvh;
-  padding: 2rem;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  scroll-snap-align: start;
-}
-
-.sectionInner {
-  width: 80%;
+  padding: 4.5rem 2rem;
+  overflow: hidden;
 }
 
 .heading {
   font-family: "TechnoRace";
-  font-size: 4.5rem;
+  font-size: 3rem;
   margin: 0;
 }
 
@@ -24,13 +18,34 @@
   color: var(--primary);
   font-weight: 700;
   font-style: italic;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .container {
-  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding-top: 2rem;
+}
+
+.sectionInner {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 4.5rem;
+  }
+
+  .decor {
+    font-size: 2rem;
+  }
+
+  .container {
+    width: 60%;
+  }
+
+  .sectionInner {
+    width: 80%;
+  }
 }

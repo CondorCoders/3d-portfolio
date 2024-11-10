@@ -1,0 +1,33 @@
+.wrapper {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  backdrop-filter: blur(3px);
+  border-radius: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(var(--secondary), 0.5) 100%
+  );
+}
+
+.techWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  gap: 1rem;
+}
+
+.subheading {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .techWrapper {
+    flex-wrap: wrap;
+    overflow-x: auto;
+  }
+}
