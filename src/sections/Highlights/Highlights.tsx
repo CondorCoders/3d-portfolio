@@ -16,7 +16,7 @@ export const Highlights = () => {
         label="Project"
         heading="Rubber Ducking AI"
         link="https://rubberduckingai.condorcoders.com/"
-        imgUrl="./public/images/RubberDuckingAI.webp"
+        imgUrl="/images/RubberDuckingAI.webp"
       >
         <p>
           Developed a chat assistant for developers using Gemini AI, inspired by
@@ -32,7 +32,7 @@ export const Highlights = () => {
         label="Project"
         heading="Twitch Overlay !HACK"
         link="https://twitchhackoverlay.condorcoders.com"
-        imgUrl="./public/images/TwitchOverlay.webp"
+        imgUrl="/images/TwitchOverlay.webp"
       >
         <p>
           Created an old-style computer overlay that reacts to Twitch. When
@@ -49,7 +49,7 @@ export const Highlights = () => {
         label="Award"
         heading="FemHack 2023: Tracking the Growth of Internet Users Worldwide"
         link="https://github.com/sofigrijalva/frontend-femhack-challenge"
-        imgUrl="./public/images/FemHack2023.webp"
+        imgUrl="/images/FemHack2023.webp"
       >
         <p>1st place in the Web Development Challenge.</p>
         <div className={styles.techsWrapper}>

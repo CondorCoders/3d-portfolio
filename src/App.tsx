@@ -1,6 +1,6 @@
 import "./App.css";
+import { Backdrop } from "./components/Backdrop/Backdrop";
 import { NavBar } from "./components/NavBar/NavBar";
-import { Scene } from "./components/Scene/Scene";
 import { ModelProvider } from "./contexts/ModelContext";
 import { CondorCoders } from "./sections/CondorCoders/CondorCoders";
 import { Highlights } from "./sections/Highlights/Highlights";
@@ -10,10 +10,9 @@ import { Profile } from "./sections/Profile/Profile";
 function App() {
   return (
     <ModelProvider>
+      <Backdrop />
       <NavBar />
-      <div className="backdrop">
-        <Scene />
-      </div>
+
       <>
         <Profile />
         <History />

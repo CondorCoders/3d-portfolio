@@ -9,9 +9,6 @@
 #root {
   position: relative;
   min-height: 100dvh;
-
-  --primary: #c8aa6e;
-  --secondary: 100, 32, 26;
 }
 
 html {
@@ -19,6 +16,9 @@ html {
 }
 
 body {
+  --primary: #c8aa6e;
+  --secondary: 100, 32, 26;
+
   font-family: "Poppins", serif;
   height: 100%;
   margin: 0;
@@ -28,4 +28,9 @@ body {
 
 p {
   font-weight: 200;
+}
+
+[data-theme="creator"] {
+  --primary: #d58c94;
+  --secondary: 40, 16, 31;
 }

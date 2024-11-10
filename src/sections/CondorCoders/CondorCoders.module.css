@@ -19,3 +19,72 @@
     min-width: 250px;
   }
 }
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.skinTogger {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  left: 0;
+}
+.unlockButton {
+  background-color: rgba(var(--secondary), 0.8);
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  animation: glow 1s infinite alternate-reverse;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.unlockButton:hover {
+  background-color: rgba(var(--secondary), 1);
+  cursor: pointer;
+}
+
+.skinMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.skin {
+  color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  padding: 0.3rem 0.5rem;
+  background-color: rgba(var(--secondary), 0.5);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-width: 5rem;
+  max-width: fit-content;
+  padding: 1rem;
+  font-size: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.skin:hover {
+  background-color: rgba(var(--secondary), 1);
+  cursor: pointer;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0px 0px 24px 7px rgba(var(--secondary), 0.75);
+  }
+
+  100% {
+    box-shadow: 0px 0px 30px 20px rgba(var(--secondary), 1);
+  }
+}
