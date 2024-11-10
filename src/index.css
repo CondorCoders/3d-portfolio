@@ -2,8 +2,12 @@
 
 @font-face {
   font-family: TechnoRace;
-  src: url("/fonts/TechnoRace.otf");
-  font-style: italic;
+  src: url("/fonts/TechnoRace.ttf") format("truetype"),
+    url("/fonts/TechnoRace.woff2") format("woff2"),
+    url("/fonts/TechnoRace.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
 }
 
 #root {
